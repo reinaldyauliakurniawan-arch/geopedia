@@ -175,6 +175,11 @@ const GeoCountryPanel = (() => {
      * @param {Object} data - Country data object from buildCountryData()
      */
     function renderCountryData(data) {
+        // Determine entity type for labeling
+        const isSovereign = data.adalah_negara !== false;
+        const entityDesignation = data.designasi || (isSovereign ? 'Negara' : 'Wilayah');
+        const entityLabel = isSovereign ? 'negara' : entityDesignation.toLowerCase();
+        
         // Hero image/flag
         const imageEl = document.getElementById('panel-image');
         const flagEl = document.getElementById('panel-flag');
@@ -192,8 +197,8 @@ const GeoCountryPanel = (() => {
             flagEl.alt = `Bendera ${data.nama}`;
         }
         
-        // Basic info
-        setTextContent('panel-country-name', data.nama);
+        // Basic info - update title with designation if not sovereign
+        setTextContent('panel-country-name', data.nama + (isSovereign ? '' : ` (${entityDesignation})`));
         setTextContent('panel-capital', data.ibu_kota);
         setTextContent('panel-population', data.populasi_formatted);
         setTextContent('panel-area', data.luas_formatted);
@@ -213,10 +218,10 @@ const GeoCountryPanel = (() => {
         // Video section
         renderVideoSection(data);
         
-        // Geographic advantages/disadvantages & facts
-        renderFactList('panel-advantages', data.keuntungan_geografis, 'Belum ada informasi keuntungan geografis.');
-        renderFactList('panel-disadvantages', data.kerugian_geografis, 'Belum ada informasi tantangan geografis.');
-        renderFactList('panel-facts', data.fakta_unik, 'Belum ada fakta unik untuk negara ini.');
+        // Geographic advantages/disadvantages & facts - use entity-aware labels
+        renderFactList('panel-advantages', data.keuntungan_geografis, `Belum ada informasi keuntungan geografis ${entityLabel} ini.`);
+        renderFactList('panel-disadvantages', data.kerugian_geografis, `Belum ada informasi tantangan geografis ${entityLabel} ini.`);
+        renderFactList('panel-facts', data.fakta_unik, `Belum ada fakta unik untuk ${entityLabel} ini.`);
         
         // Scroll to top of panel content
         const content = panel.querySelector('.panel-content');

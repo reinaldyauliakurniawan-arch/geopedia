@@ -45,6 +45,13 @@ const GeoDataSources = (() => {
         'ZMB': 'ZM', 'ZWE': 'ZW'
     };
     
+    /**
+     * Normalize ISO code from GeoJSON properties
+     * Handles both ISO_A2 (2-char) and ADM0_A3 (3-char) codes from Natural Earth
+     * @param {string} isoA2 - ISO_A2 code from GeoJSON
+     * @param {string} adm0A3 - ADM0_A3 code from GeoJSON (fallback)
+     * @returns {string|null} Normalized 2-char ISO code or null
+     */
     window.normalizeISOForDataSources = function(isoA2, adm0A3) {
         if (isoA2 && isoA2 !== '-99' && isoA2.length === 2) {
             return isoA2.toUpperCase();
@@ -55,6 +62,9 @@ const GeoDataSources = (() => {
         }
         return null;
     };
+    
+    // Alias for map-render.js compatibility (BOTH names work now)
+    window.normalizeISOCode = window.normalizeISOForDataSources;
 
     'use strict';
 
@@ -479,10 +489,12 @@ const GeoDataSources = (() => {
             return `${CONFIG.FLAG_BASE}${cca2.toLowerCase()}.png`;
         };
         
-        // Determine description
+        // Determine description (entity-aware)
         const getDescription = () => {
             if (wikiData.extract) return wikiData.extract;
-            return 'Deskripsi negara ini belum tersedia dalam bahasa Indonesia. Coba cari di Wikipedia untuk informasi lebih lengkap!';
+            const isSovereign = curatedData.adalah_negara !== false;
+            const entityType = isSovereign ? 'negara' : 'wilayah/entitas';
+            return `Deskripsi ${entityType} ini belum tersedia dalam bahasa Indonesia. Coba cari di Wikipedia untuk informasi lebih lengkap!`;
         };
         
         // Build YouTube embed URL or search link
@@ -544,6 +556,10 @@ const GeoDataSources = (() => {
             keuntungan_geografis: curatedData.keuntungan_geografis || [],
             kerugian_geografis: curatedData.kerugian_geografis || [],
             fakta_unik: curatedData.fakta_unik || [],
+            
+            // Entity type (sovereign vs dependency/territory)
+            adalah_negara: curatedData.adalah_negara !== false,  // default true
+            designasi: curatedData.designasi || 'Negara',
             
             // Coordinates for centering map
             coordinates: restCountryData.latlng || [0, 0],
@@ -614,7 +630,7 @@ const GeoDataSources = (() => {
         },
         gulf: {
             icon: '🌊',
-            name': 'Teluk Besar (Gulf)',
+            name: 'Teluk Besar (Gulf)',
             descriptions: [
                 'Ini adalah teluk besar (gulf)! Gulf adalah teluk yang ukurannya sangat besar.',
                 'Gulf sering menjadi jalur perdagangan penting dan kaya akan minyak bumi.',

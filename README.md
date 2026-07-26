@@ -10,7 +10,7 @@
 
 GeoPedia adalah aplikasi web peta dunia interaktif yang dirancang khusus untuk anak-anak. Dengan GeoPedia, anak bisa:
 
-- 🗺️ **Jelajahi 192 negara berdaulat** di seluruh dunia dengan peta interaktif
+- 🗺️ **Jelajahi 193 negara berdaulat + 43 wilayah dependensi** di seluruh dunia dengan peta interaktif
 - 📚 **Pelajari fakta menarik** tentang setiap negara (ibu kota, populasi, bahasa, mata uang)
 - 🎬 **Tonton video edukasi** YouTube (jika tersedia) atau cari video sendiri
 - ⛰️ **Lihat fitur geografis**: gunung, sungai, danau, laut & selat
@@ -21,7 +21,8 @@ GeoPedia adalah aplikasi web peta dunia interaktif yang dirancang khusus untuk a
 ## ✨ Fitur Utama
 
 ### 1. Peta Interaktif
-- **192 negara berdaulat** yang bisa diklik dan di-hover
+- **193 negara berdaulat** yang bisa diklik dan di-hover
+- **43 wilayah dependensi/teritori** dengan label khusus (bukan "negara")
 - **Zoom & pan** berfungsi di desktop dan mobile (scroll/pinch + drag)
 - **5 layer toggleable**:
   - 🗺️ Negara (default aktif)
@@ -72,7 +73,7 @@ Klik negara untuk melihat:
 ├── feature-panel.js        # Panel info fitur geografis
 ├── data-sources.js         # Fetch API & cache management
 ├── data/
-│   ├── curated/            # 234 file JSON kurasi per negara
+│   ├── curated/            # 236 file JSON kurasi per entitas
 │   │   ├── ID.json         # Contoh: data Indonesia
 │   │   ├── US.json
 │   │   └── ...
@@ -317,9 +318,10 @@ Sebagian! Setelah pertama kali load, data di-cache di `localStorage`. Tapi foto/
 
 ## Data Accuracy
 
-### Country Count
-- **192 Negara Berdaulat**: Termasuk anggota PBB (193) + entitas dengan status khusus (Vatikan, Palestina, Kosovo)
-- **39 Wilayah Dependensi**: Teritori yang bukan negara berdaulat (Greenland, Puerto Rico, dll)
+### Country Count (Terverifikasi)
+- **193 Negara Berdaulat**: Sesuai anggota PBB + Vatikan (status observer spesial)
+- **43 Wilayah Dependensi/Territori**: Bukan negara berdaulat (Greenland, Puerto Rico, Antartika, dll)
+- **Total: 236 Entitas di Peta**
 
 ### ISO Code Handling
 Natural Earth GeoJSON kadang menggunakan kode ISO yang berbeda dari standar ISO 3166-1 alpha-2. Aplikasi ini melakukan normalisasi otomatis:
