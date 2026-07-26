@@ -1,6 +1,6 @@
 {
   "iso_a2": "GL",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Dengan wilayah 2.2 juta km², Greenland memiliki sumber daya alam beragam dan potensi ekonomi besar.",
@@ -13,9 +13,11 @@
     "Beberapa daerah di Greenland mungkin menghadapi tantangan akses atau kondisi geografis yang menantang."
   ],
   "fakta_unik": [
-    "Greenland adalah salah satu negara BERPENDUDUK PALING SEDIKIT di dunia—hanya 57,713 orang!",
+    "Greenland adalah salah satu wilayah BERPENDUDUK PALING SEDIKIT di dunia—hanya 57,713 orang!",
     "Greenland berada di LATITUDIN TINGGI—mengalami MUSIM PANJANG MIDNIGHT SUN dan polar night!",
     "Greenland menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Wilayah Otonom"
 }

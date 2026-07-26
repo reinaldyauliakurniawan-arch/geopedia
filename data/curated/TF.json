@@ -1,6 +1,6 @@
 {
   "iso_a2": "TF",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran compact Fr. S. Antarctic Lands (7747.0 km²) memudahkan manajemen dan pelayanan publik yang efisien.",
@@ -12,9 +12,11 @@
     "Beberapa daerah di Fr. S. Antarctic Lands mungkin menghadapi tantangan akses atau kondisi geografis yang menantang."
   ],
   "fakta_unik": [
-    "Fr. S. Antarctic Lands adalah salah satu negara BERPENDUDUK PALING SEDIKIT di dunia—hanya 140 orang!",
+    "Fr. S. Antarctic Lands adalah salah satu wilayah BERPENDUDUK PALING SEDIKIT di dunia—hanya 140 orang!",
     "Setiap sudut Fr. S. Antarctic Lands menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Fr. S. Antarctic Lands menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Wilayah/Teritori"
 }

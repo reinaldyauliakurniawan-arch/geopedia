@@ -1,9 +1,9 @@
 {
   "iso_a2": "MO",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
-    "Sebagai negara mikro (32.90 km²), Macao dapat fokus pada niche ekonomi spesialis.",
+    "Sebagai daerah/wilayah mikro (32.90 km²), Macao dapat fokus pada niche ekonomi spesialis.",
     "Memiliki akses ke laut/samudra memberikan Macao peluang perdagangan maritim, perikanan, dan pelabuhan.",
     "Letak di/near khatulistiwa memberikan Macao iklim tropis yang mendukung pertanian sepanjang tahun."
   ],
@@ -12,9 +12,11 @@
     "Ukuran kecil dengan populasi padat membuat Macao menghadapi tantangan RUANG HIDUP dan ketergantungan pada impor."
   ],
   "fakta_unik": [
-    "Macao begitu KECIL sehingga kamu bisa berkeliling seluruh negara dalam HITUNGAN MENIT!",
+    "Macao begitu KECIL sehingga kamu bisa berkeliling seluruh daerah/wilayah dalam HITUNGAN MENIT!",
     "Macau memiliki PDB PER KAPITA tertinggi di dunia (lebih dari Luxembourg)!",
     "Macao menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Daerah Administratif Khusus"
 }

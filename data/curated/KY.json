@@ -1,20 +1,22 @@
 {
   "iso_a2": "KY",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran compact Cayman Is. (264.0 km²) memudahkan manajemen dan pelayanan publik yang efisien.",
-    "Sebagai negara kepulauan/pulau, Cayman Is. memiliki garis pantai yang sepenuhnya dikelola untuk perikanan dan pariwisata.",
+    "Sebagai wilayah kepulauan/pulau, Cayman Is. memiliki garis pantai yang sepenuhnya dikelola untuk perikanan dan pariwisata.",
     "Letak di/near khatulistiwa memberikan Cayman Is. iklim tropis yang mendukung pertanian sepanjang tahun."
   ],
   "kerugian_geografis": [
     "Iklim tropis Cayman Is. membawa curah hujan tinggi yang bisa menyebabkan banjir dan tanah longsor di musim hujan.",
-    "Sebagai negara kepulauan di kawasan tropis/subtropis, Cayman Is. rentan terhadap badai tropis/siklon dan kenaikan permukaan laut."
+    "Sebagai wilayah kepulauan di kawasan tropis/subtropis, Cayman Is. rentan terhadap badai tropis/siklon dan kenaikan permukaan laut."
   ],
   "fakta_unik": [
-    "Cayman Is. adalah salah satu negara BERPENDUDUK PALING SEDIKIT di dunia—hanya 58,441 orang!",
-    "Cayman Is. sangat kecil—kamu bisa menjelajahi seluruh negara dalam HITUNGAN JAM!",
+    "Cayman Is. adalah salah satu wilayah BERPENDUDUK PALING SEDIKIT di dunia—hanya 58,441 orang!",
+    "Cayman Is. sangat kecil—kamu bisa menjelajahi seluruh wilayah dalam HITUNGAN JAM!",
     "Cayman Is. menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Wilayah/Teritori"
 }

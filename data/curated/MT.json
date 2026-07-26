@@ -1,6 +1,6 @@
 {
   "iso_a2": "MT",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran compact Malta (316.0 km²) memudahkan manajemen dan pelayanan publik yang efisien.",
@@ -16,5 +16,7 @@
     "Setiap sudut Malta menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Malta menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": null
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

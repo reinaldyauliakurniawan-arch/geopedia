@@ -1,6 +1,6 @@
 {
   "iso_a2": "HK",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran compact Hong Kong (1106.0 km²) memudahkan manajemen dan pelayanan publik yang efisien.",
@@ -16,5 +16,7 @@
     "Setiap sudut Hong Kong menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Hong Kong menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Daerah Administratif Khusus"
 }

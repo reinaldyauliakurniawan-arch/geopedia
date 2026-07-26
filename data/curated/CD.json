@@ -1,6 +1,6 @@
 {
   "iso_a2": "CD",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Dengan wilayah 2.3 juta km², Dem. Rep. Congo memiliki sumber daya alam beragam dan potensi ekonomi besar.",
@@ -17,5 +17,7 @@
     "Republik Demokratik Kongo memiliki SUNGAI CONGO—sungai terdalam di dunia (220m)!",
     "Dem. Rep. Congo menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

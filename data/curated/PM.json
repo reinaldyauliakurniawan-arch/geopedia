@@ -1,6 +1,6 @@
 {
   "iso_a2": "PM",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran compact St. Pierre and Miquelon (242.0 km²) memudahkan manajemen dan pelayanan publik yang efisien.",
@@ -12,9 +12,11 @@
     "Beberapa daerah di St. Pierre and Miquelon mungkin menghadapi tantangan akses atau kondisi geografis yang menantang."
   ],
   "fakta_unik": [
-    "St. Pierre and Miquelon adalah salah satu negara BERPENDUDUK PALING SEDIKIT di dunia—hanya 5,533 orang!",
-    "St. Pierre and Miquelon sangat kecil—kamu bisa menjelajahi seluruh negara dalam HITUNGAN JAM!",
+    "St. Pierre and Miquelon adalah salah satu wilayah BERPENDUDUK PALING SEDIKIT di dunia—hanya 5,533 orang!",
+    "St. Pierre and Miquelon sangat kecil—kamu bisa menjelajahi seluruh wilayah dalam HITUNGAN JAM!",
     "St. Pierre and Miquelon menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Wilayah/Teritori"
 }

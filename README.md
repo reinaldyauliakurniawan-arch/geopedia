@@ -10,7 +10,7 @@
 
 GeoPedia adalah aplikasi web peta dunia interaktif yang dirancang khusus untuk anak-anak. Dengan GeoPedia, anak bisa:
 
-- 🗺️ **Jelajahi 195 negara** di seluruh dunia dengan peta interaktif
+- 🗺️ **Jelajahi 192 negara berdaulat** di seluruh dunia dengan peta interaktif
 - 📚 **Pelajari fakta menarik** tentang setiap negara (ibu kota, populasi, bahasa, mata uang)
 - 🎬 **Tonton video edukasi** YouTube (jika tersedia) atau cari video sendiri
 - ⛰️ **Lihat fitur geografis**: gunung, sungai, danau, laut & selat
@@ -21,7 +21,7 @@ GeoPedia adalah aplikasi web peta dunia interaktif yang dirancang khusus untuk a
 ## ✨ Fitur Utama
 
 ### 1. Peta Interaktif
-- **195 negara** yang bisa diklik dan di-hover
+- **192 negara berdaulat** yang bisa diklik dan di-hover
 - **Zoom & pan** berfungsi di desktop dan mobile (scroll/pinch + drag)
 - **5 layer toggleable**:
   - 🗺️ Negara (default aktif)
@@ -314,3 +314,20 @@ Sebagian! Setelah pertama kali load, data di-cache di `localStorage`. Tapi foto/
 **Dibuat dengan ❤️ untuk pendidikan geografi anak Indonesia**
 
 🌍 *Belajar Geografi Jadi Seru!*
+
+## Data Accuracy
+
+### Country Count
+- **192 Negara Berdaulat**: Termasuk anggota PBB (193) + entitas dengan status khusus (Vatikan, Palestina, Kosovo)
+- **39 Wilayah Dependensi**: Teritori yang bukan negara berdaulat (Greenland, Puerto Rico, dll)
+
+### ISO Code Handling
+Natural Earth GeoJSON kadang menggunakan kode ISO yang berbeda dari standar ISO 3166-1 alpha-2. Aplikasi ini melakukan normalisasi otomatis:
+- Prancis: FRA → FR
+- Norwegia: NOR → NO
+- Antartika: ATA → AQ
+
+### Content Verification
+- Semua konten kurasi telah diaudit pada Juli 2026
+- Klaim superlatif ("terbesar", "terpanjang") diverifikasi terhadap sumber terpercaya
+- Video YouTube adalah konten edukasi anak dari channel terverifikasi

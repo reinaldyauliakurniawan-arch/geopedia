@@ -1,6 +1,6 @@
 {
   "iso_a2": "VI",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran compact U.S. Virgin Is. (134.0 km²) memudahkan manajemen dan pelayanan publik yang efisien.",
@@ -12,9 +12,11 @@
     "Ukuran kecil dengan populasi padat membuat U.S. Virgin Is. menghadapi tantangan RUANG HIDUP dan ketergantungan pada impor."
   ],
   "fakta_unik": [
-    "U.S. Virgin Is. sangat kecil—kamu bisa menjelajahi seluruh negara dalam HITUNGAN JAM!",
+    "U.S. Virgin Is. sangat kecil—kamu bisa menjelajahi seluruh teritori dalam HITUNGAN JAM!",
     "Setiap sudut U.S. Virgin Is. menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "U.S. Virgin Is. menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Teritori AS"
 }

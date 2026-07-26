@@ -1,6 +1,6 @@
 {
   "iso_a2": "CR",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Meskipun ukuran menengah (51.1 ribu km²), Costa Rica dapat mengoptimalkan penggunaan lahan secara efisien.",
@@ -16,5 +16,7 @@
     "Setiap sudut Costa Rica menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Costa Rica menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

@@ -1,6 +1,6 @@
 {
   "iso_a2": "CV",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran compact Cabo Verde (4033.0 km²) memudahkan manajemen dan pelayanan publik yang efisien.",
@@ -16,5 +16,7 @@
     "Setiap sudut Cabo Verde menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Cabo Verde menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

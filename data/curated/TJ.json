@@ -1,6 +1,6 @@
 {
   "iso_a2": "TJ",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran wilayah Tajikistan (143 ribu km²) cukup untuk mendukung diversifikasi ekonomi dan pertanian.",
@@ -16,5 +16,7 @@
     "Setiap sudut Tajikistan menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Tajikistan menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

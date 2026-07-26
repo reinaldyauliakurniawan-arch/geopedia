@@ -1,6 +1,6 @@
 {
   "iso_a2": "JP",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Kepulauan panjang (6.852 pulau) memberikan garis pantai 29.751 km yang sangat indah dan produktif untuk perikanan.",
@@ -21,5 +21,7 @@
     "Kereta SHINKANSEN (bullet train) telah beroperasi 60+ tahun tanpa SATU KECELAKAAN FATAL!",
     "Jepang memiliki umur harapan tertinggi di dunia—rata-rata 84+ tahun!"
   ],
-  "youtube_id": "YyqJ5j2nVkI"
+  "youtube_id": "YyqJ5VkI",
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

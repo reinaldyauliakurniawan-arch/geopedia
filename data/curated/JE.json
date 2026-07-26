@@ -1,6 +1,6 @@
 {
   "iso_a2": "JE",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran compact Jersey (116.0 km²) memudahkan manajemen dan pelayanan publik yang efisien.",
@@ -12,9 +12,11 @@
     "Beberapa daerah di Jersey mungkin menghadapi tantangan akses atau kondisi geografis yang menantang."
   ],
   "fakta_unik": [
-    "Jersey adalah salah satu negara BERPENDUDUK PALING SEDIKIT di dunia—hanya 98,840 orang!",
-    "Jersey sangat kecil—kamu bisa menjelajahi seluruh negara dalam HITUNGAN JAM!",
+    "Jersey adalah salah satu wilayah BERPENDUDUK PALING SEDIKIT di dunia—hanya 98,840 orang!",
+    "Jersey sangat kecil—kamu bisa menjelajahi seluruh wilayah dalam HITUNGAN JAM!",
     "Jersey menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Wilayah/Teritori"
 }

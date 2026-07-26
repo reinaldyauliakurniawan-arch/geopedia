@@ -1,6 +1,6 @@
 {
   "iso_a2": "MP",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran compact N. Mariana Is. (464.0 km²) memudahkan manajemen dan pelayanan publik yang efisien.",
@@ -12,9 +12,11 @@
     "Beberapa daerah di N. Mariana Is. mungkin menghadapi tantangan akses atau kondisi geografis yang menantang."
   ],
   "fakta_unik": [
-    "N. Mariana Is. adalah salah satu negara BERPENDUDUK PALING SEDIKIT di dunia—hanya 52,263 orang!",
-    "N. Mariana Is. sangat kecil—kamu bisa menjelajahi seluruh negara dalam HITUNGAN JAM!",
+    "N. Mariana Is. adalah salah satu persemakmuran BERPENDUDUK PALING SEDIKIT di dunia—hanya 52,263 orang!",
+    "N. Mariana Is. sangat kecil—kamu bisa menjelajahi seluruh persemakmuran dalam HITUNGAN JAM!",
     "N. Mariana Is. menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Persemakmuran AS"
 }

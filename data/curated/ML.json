@@ -1,6 +1,6 @@
 {
   "iso_a2": "ML",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Dengan wilayah 1.2 juta km², Mali memiliki sumber daya alam beragam dan potensi ekonomi besar.",
@@ -17,5 +17,7 @@
     "Setiap sudut Mali menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Mali menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

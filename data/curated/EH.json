@@ -1,6 +1,6 @@
 {
   "iso_a2": "EH",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran wilayah W. Sahara (266 ribu km²) cukup untuk mendukung diversifikasi ekonomi dan pertanian.",
@@ -12,9 +12,11 @@
     "Beberapa daerah di W. Sahara mungkin menghadapi tantangan akses atau kondisi geografis yang menantang."
   ],
   "fakta_unik": [
-    "W. Sahara memiliki karakteristik geografis dan budaya yang MEMBEDAKANNYA dari negara-negara tetangga.",
+    "W. Sahara memiliki karakteristik geografis dan budaya yang MEMBEDAKANNYA dari wilayah-wilayah tetangga.",
     "Setiap sudut W. Sahara menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "W. Sahara menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Wilayah/Teritori"
 }

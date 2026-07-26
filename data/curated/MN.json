@@ -1,6 +1,6 @@
 {
   "iso_a2": "MN",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Dengan wilayah 1.6 juta km², Mongolia memiliki sumber daya alam beragam dan potensi ekonomi besar.",
@@ -16,5 +16,7 @@
     "Mongolia adalah negara paling TIDAK PADAT di dunia—hanya 2 orang/km²!",
     "Mongolia menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": null
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

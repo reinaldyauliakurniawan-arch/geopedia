@@ -132,7 +132,7 @@ const GeoMapRenderer = (() => {
             .append('path')
             .attr('class', 'map-country')
             .attr('d', path)
-            .attr('data-iso-a2', d => d.properties.ISO_A2 || '')
+            .attr('data-iso-a2', d => normalizeISOCode(d.properties.ISO_A2, d.properties.ADM0_A3) || '')
             .attr('data-name', d => d.properties.NAME || '')
             .attr('tabindex', '0')  // Keyboard accessible
             .attr('role', 'button')
@@ -140,7 +140,7 @@ const GeoMapRenderer = (() => {
         
         // Check visited status and apply class
         paths.each(function(d) {
-            const isoA2 = d.properties.ISO_A2;
+            const isoA2 = normalizeISOCode(d.properties.ISO_A2, d.properties.ADM0_A3);
             if (isoA2 && window.GeoDataSources && GeoDataSources.VisitedTracker.isVisited(isoA2)) {
                 d3.select(this).classed('visited', true);
             }
@@ -168,7 +168,7 @@ const GeoMapRenderer = (() => {
      * Handle country click
      */
     function handleCountryClick(d, element) {
-        const isoA2 = d.properties.ISO_A2;
+        const isoA2 = normalizeISOCode(d.properties.ISO_A2, d.properties.ADM0_A3);
         const name = d.properties.NAME;
         
         if (!isoA2) {
@@ -521,7 +521,7 @@ const GeoMapRenderer = (() => {
         if (!isoA2) return null;
         
         return countriesData.find(c => 
-            c.properties.ISO_A2 === isoA2.toUpperCase()
+            normalizeISOCode(c.properties.ISO_A2, c.properties.ADM0_A3) === isoA2.toUpperCase()
         ) || null;
     }
 

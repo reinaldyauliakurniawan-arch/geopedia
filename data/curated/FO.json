@@ -1,6 +1,6 @@
 {
   "iso_a2": "FO",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran compact Faeroe Is. (1396.0 km²) memudahkan manajemen dan pelayanan publik yang efisien.",
@@ -13,9 +13,11 @@
     "Beberapa daerah di Faeroe Is. mungkin menghadapi tantangan akses atau kondisi geografis yang menantang."
   ],
   "fakta_unik": [
-    "Faeroe Is. adalah salah satu negara BERPENDUDUK PALING SEDIKIT di dunia—hanya 50,730 orang!",
+    "Faeroe Is. adalah salah satu wilayah BERPENDUDUK PALING SEDIKIT di dunia—hanya 50,730 orang!",
     "Setiap sudut Faeroe Is. menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Faeroe Is. menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Wilayah Otonom"
 }

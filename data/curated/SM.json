@@ -1,6 +1,6 @@
 {
   "iso_a2": "SM",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Sebagai negara mikro (61.00 km²), San Marino dapat fokus pada niche ekonomi spesialis.",
@@ -18,5 +18,7 @@
     "San Marino begitu KECIL sehingga kamu bisa berkeliling seluruh negara dalam HITUNGAN MENIT!",
     "San Marino adalah salah satu dari 44 negara di dunia yang TIDAK mempunyai PANTAI!"
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

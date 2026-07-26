@@ -1,6 +1,6 @@
 {
   "iso_a2": "MG",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran wilayah Madagascar (587 ribu km²) cukup untuk mendukung diversifikasi ekonomi dan pertanian.",
@@ -16,5 +16,7 @@
     "Madagascar adalah EVOLUTIONARY HOTSPOT—90% FLORA FAUNA endemik (tidak ada di tempat lain)!",
     "Madagascar menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

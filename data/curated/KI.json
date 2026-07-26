@@ -1,6 +1,6 @@
 {
   "iso_a2": "KI",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran compact Kiribati (811.0 km²) memudahkan manajemen dan pelayanan publik yang efisien.",
@@ -17,5 +17,7 @@
     "Kiribati terletak SANGAT DEKAT KHATULISTIWA—matahari hampir tegak luras sepanjang tahun!",
     "Kiribati menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

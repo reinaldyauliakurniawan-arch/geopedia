@@ -1,9 +1,9 @@
 {
   "iso_a2": "HM",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
-    "Sebagai negara mikro (34.00 km²), Heard I. and McDonald Is. dapat fokus pada niche ekonomi spesialis.",
+    "Sebagai wilayah mikro (34.00 km²), Heard I. and McDonald Is. dapat fokus pada niche ekonomi spesialis.",
     "Memiliki akses ke laut/samudra memberikan Heard I. and McDonald Is. peluang perdagangan maritim, perikanan, dan pelabuhan.",
     "Iklim sedang dengan 4 musim jelas mendukung pertanian musiman dan kehidupan sehari-hari yang variatif."
   ],
@@ -12,9 +12,11 @@
     "Ukuran mikro Heard I. and McDonald Is. berarti TIDAK ADA sumber daya alam domestik—100% ketergantungan pada impor."
   ],
   "fakta_unik": [
-    "Heard I. and McDonald Is. begitu KECIL sehingga kamu bisa berkeliling seluruh negara dalam HITUNGAN MENIT!",
+    "Heard I. and McDonald Is. begitu KECIL sehingga kamu bisa berkeliling seluruh wilayah dalam HITUNGAN MENIT!",
     "Setiap sudut Heard I. and McDonald Is. menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Heard I. and McDonald Is. menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Wilayah/Teritori"
 }

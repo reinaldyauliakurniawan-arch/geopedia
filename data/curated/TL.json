@@ -1,6 +1,6 @@
 {
   "iso_a2": "TL",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Meskipun ukuran menengah (14.9 ribu km²), Timor-Leste dapat mengoptimalkan penggunaan lahan secara efisien.",
@@ -17,5 +17,7 @@
     "Setiap sudut Timor-Leste menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Timor-Leste menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

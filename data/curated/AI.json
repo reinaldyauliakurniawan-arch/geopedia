@@ -1,9 +1,9 @@
 {
   "iso_a2": "AI",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
-    "Sebagai negara mikro (91.00 km²), Anguilla dapat fokus pada niche ekonomi spesialis.",
+    "Sebagai wilayah mikro (91.00 km²), Anguilla dapat fokus pada niche ekonomi spesialis.",
     "Memiliki akses ke laut/samudra memberikan Anguilla peluang perdagangan maritim, perikanan, dan pelabuhan.",
     "Letak di/near khatulistiwa memberikan Anguilla iklim tropis yang mendukung pertanian sepanjang tahun."
   ],
@@ -12,9 +12,11 @@
     "Ukuran mikro Anguilla berarti TIDAK ADA sumber daya alam domestik—100% ketergantungan pada impor."
   ],
   "fakta_unik": [
-    "Anguilla adalah salah satu negara BERPENDUDUK PALING SEDIKIT di dunia—hanya 17,087 orang!",
-    "Anguilla begitu KECIL sehingga kamu bisa berkeliling seluruh negara dalam HITUNGAN MENIT!",
+    "Anguilla adalah salah satu wilayah BERPENDUDUK PALING SEDIKIT di dunia—hanya 17,087 orang!",
+    "Anguilla begitu KECIL sehingga kamu bisa berkeliling seluruh wilayah dalam HITUNGAN MENIT!",
     "Anguilla menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Wilayah/Teritori"
 }

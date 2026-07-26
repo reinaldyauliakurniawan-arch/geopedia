@@ -1,6 +1,6 @@
 {
   "iso_a2": "AX",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran compact Åland (1580.0 km²) memudahkan manajemen dan pelayanan publik yang efisien.",
@@ -13,9 +13,11 @@
     "Beberapa daerah di Åland mungkin menghadapi tantangan akses atau kondisi geografis yang menantang."
   ],
   "fakta_unik": [
-    "Åland adalah salah satu negara BERPENDUDUK PALING SEDIKIT di dunia—hanya 27,153 orang!",
+    "Åland adalah salah satu wilayah BERPENDUDUK PALING SEDIKIT di dunia—hanya 27,153 orang!",
     "Setiap sudut Åland menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Åland menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": false,
+  "designasi": "Wilayah Otonom"
 }

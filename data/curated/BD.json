@@ -1,6 +1,6 @@
 {
   "iso_a2": "BD",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Ukuran wilayah Bangladesh (148 ribu km²) cukup untuk mendukung diversifikasi ekonomi dan pertanian.",
@@ -16,5 +16,7 @@
     "Bangladesh adalah salah satu dari 44 negara di dunia yang TIDAK mempunyai PANTAI!",
     "Bangladesh adalah negara PADAT PENDUDUK terbesar ke-8 di dunia—lebih dari Rusia dalam kepadatan!"
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

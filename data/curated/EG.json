@@ -1,6 +1,6 @@
 {
   "iso_a2": "EG",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Terusan Suez menghubungkan Laut Tengah dan Merah—jalur shipping terpenting dunia (12% perdagangan global).",
@@ -21,5 +21,7 @@
     "Mesir Kuno MENEMUKAN KERTAS dari tanaman papirus 5.000 tahun lalu!",
     "Luxor (Thebes kuno) memiliki SEPULUH PIRAMIDA FIRAUN dan Valley of the Kings!"
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

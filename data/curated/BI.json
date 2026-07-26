@@ -1,6 +1,6 @@
 {
   "iso_a2": "BI",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Meskipun ukuran menengah (27.8 ribu km²), Burundi dapat mengoptimalkan penggunaan lahan secara efisien.",
@@ -17,5 +17,7 @@
     "Setiap sudut Burundi menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Burundi menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": null
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

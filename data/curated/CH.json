@@ -1,6 +1,6 @@
 {
   "iso_a2": "CH",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Dengan wilayah 1.3 juta km², Switzerland memiliki sumber daya alam beragam dan potensi ekonomi besar.",
@@ -16,5 +16,7 @@
     "Setiap sudut Switzerland menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Switzerland menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": null
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

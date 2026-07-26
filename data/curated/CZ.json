@@ -1,6 +1,6 @@
 {
   "iso_a2": "CZ",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Sebagai negara mikro (0.00 km²), Czechia dapat fokus pada niche ekonomi spesialis.",
@@ -16,5 +16,7 @@
     "Setiap sudut Czechia menyimpan cerita menarik tentang bagaimana geografi membentuk kehidupan penduduknya.",
     "Czechia menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }

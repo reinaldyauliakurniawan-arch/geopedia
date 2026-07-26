@@ -5,6 +5,57 @@
  */
 
 const GeoDataSources = (() => {
+    // ============================================
+    // ISO CODE NORMALIZATION (synced with map-render.js)
+    // ============================================
+    
+    const ISO_CODE_NORMALIZE = {
+        'FRA': 'FR', 'NOR': 'NO', 'ATA': 'AQ',
+        'ABW': 'AW', 'AGO': 'AO', 'ALD': 'AX', 'AND': 'AD', 'ARE': 'AE',
+        'ARM': 'AM', 'ATF': 'TF', 'ATG': 'AG', 'AUT': 'AT', 'BDI': 'BI',
+        'BEN': 'BJ', 'BGD': 'BD', 'BHS': 'BS', 'BIH': 'BA', 'BLR': 'BY',
+        'BLZ': 'BZ', 'BRB': 'BB', 'BRN': 'BN', 'CAF': 'CF', 'CHE': 'CH',
+        'CMR': 'CM', 'COG': 'CG', 'COL': 'CO', 'CRI': 'CR', 'CUB': 'CU',
+        'CYP': 'CY', 'CZE': 'CZ', 'DEU': 'DE', 'DNK': 'DK', 'EGY': 'EG',
+        'ERI': 'ER', 'ESP': 'ES', 'EST': 'EE', 'ETH': 'ET', 'FIN': 'FI',
+        'FJI': 'FJ', 'FRO': 'FO', 'GAB': 'GA', 'GBR': 'GB', 'GEO': 'GE',
+        'GHA': 'GH', 'GIN': 'GN', 'GMB': 'GM', 'GNB': 'GW', 'GRC': 'GR',
+        'GRD': 'GD', 'GRL': 'GL', 'GTM': 'GT', 'GUY': 'GY', 'HND': 'HN',
+        'HRV': 'HR', 'HTI': 'HT', 'HUN': 'HU', 'IDN': 'ID', 'IND': 'IN',
+        'IRL': 'IE', 'IRN': 'IR', 'IRQ': 'IQ', 'ISL': 'IS', 'ISR': 'IL',
+        'ITA': 'IT', 'JAM': 'JM', 'JOR': 'JO', 'JPN': 'JP', 'KAZ': 'KZ',
+        'KEN': 'KE', 'KGZ': 'KG', 'LAO': 'LA', 'LBN': 'LB', 'LBR': 'LR',
+        'LBY': 'LY', 'LIE': 'LI', 'LKA': 'LK', 'LSO': 'LS', 'LTU': 'LT',
+        'LUX': 'LU', 'LVA': 'LV', 'MAR': 'MA', 'MCO': 'MC', 'MDA': 'MD',
+        'MDV': 'MV', 'MEX': 'MX', 'MKD': 'MK', 'MLI': 'ML', 'MLT': 'MT',
+        'MNE': 'ME', 'MNG': 'MN', 'MOZ': 'MZ', 'MRT': 'MR', 'MUS': 'MU',
+        'MWI': 'MW', 'MYS': 'MY', 'NAM': 'NA', 'NIC': 'NI', 'NLD': 'NL',
+        'NER': 'NE', 'NGA': 'NG', 'NOR': 'NO', 'NPL': 'NP', 'NZL': 'NZ',
+        'OMN': 'OM', 'PAK': 'PK', 'PAN': 'PA', 'PER': 'PE', 'PHL': 'PH',
+        'PLW': 'PW', 'PNG': 'PG', 'POL': 'PL', 'PRI': 'PR', 'PRK': 'KP',
+        'PRT': 'PT', 'PRY': 'PY', 'QAT': 'QA', 'ROU': 'RO', 'RUS': 'RU',
+        'RWA': 'RW', 'SAU': 'SA', 'SDN': 'SD', 'SEN': 'SN', 'SGP': 'SG',
+        'SLB': 'SB', 'SLE': 'SL', 'SLV': 'SV', 'SMR': 'SM', 'SOM': 'SO',
+        'SRB': 'RS', 'SUR': 'SR', 'SVK': 'SK', 'SVN': 'SI', 'SWE': 'SE',
+        'SWZ': 'SZ', 'SYR': 'SY', 'TCD': 'TD', 'TGO': 'TG', 'THA': 'TH',
+        'TJK': 'TJ', 'TKM': 'TM', 'TLS': 'TL', 'TON': 'TO', 'TTO': 'TT',
+        'TUN': 'TN', 'TUR': 'TR', 'TUV': 'TV', 'TZA': 'TZ', 'UGA': 'UG',
+        'UKR': 'UA', 'URY': 'UY', 'USA': 'US', 'UZB': 'UZ', 'VEN': 'VE',
+        'VNM': 'VN', 'VUT': 'VU', 'WSM': 'WS', 'YEM': 'YE', 'ZAF': 'ZA',
+        'ZMB': 'ZM', 'ZWE': 'ZW'
+    };
+    
+    window.normalizeISOForDataSources = function(isoA2, adm0A3) {
+        if (isoA2 && isoA2 !== '-99' && isoA2.length === 2) {
+            return isoA2.toUpperCase();
+        }
+        if (adm0A3 && adm0A3 !== '-99' && adm0A3.length >= 2) {
+            const a3 = adm0A3.toUpperCase();
+            return ISO_CODE_NORMALIZE[a3] || a3.substring(0, 2);
+        }
+        return null;
+    };
+
     'use strict';
 
     // ============================================

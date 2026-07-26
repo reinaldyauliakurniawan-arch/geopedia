@@ -1,6 +1,6 @@
 {
   "iso_a2": "ET",
-  "sumber_isi": "ai_generated_v2_factual",
+  "sumber_isi": "ai_generated_v3_audited",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
     "Dengan wilayah 1.1 juta km², Ethiopia memiliki sumber daya alam beragam dan potensi ekonomi besar.",
@@ -17,5 +17,7 @@
     "Ethiopia adalah negara LANDLOCKED (daratan terkurung) terbesar di dunia!",
     "Etiopia adalah satu-satunya negara Afrika yang TIDAK PERNAH DIKOLONISASI (kecuali pendudukan singkat Italia)"
   ],
-  "youtube_id": "cZyQwHnLdZo"
+  "youtube_id": null,
+  "adalah_negara": true,
+  "designasi": "Negara"
 }
