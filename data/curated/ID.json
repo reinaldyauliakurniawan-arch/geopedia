@@ -1,24 +1,25 @@
 {
   "iso_a2": "ID",
-  "sumber_isi": "ai_generated",
+  "sumber_isi": "ai_generated_v2_factual",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
-    "Meskipun kecil, ukuran Indonesia membuatnya mudah dikelola dan efisien dalam pelayanan publik.",
-    "Memiliki garis pantai panjang memungkinkan Indonesia untuk mengembangkan pelabuhan, pariwisata pantai, dan perikanan.",
-    "Iklim tropis Indonesia memungkinkan pertanian sepanjang tahun dengan hasil panen beragam seperti padi, kelapa, dan buah-buahan tropis.",
-    "Keindahan alam dan warisan budaya Indonesia menarik jutaan wisatawan dari seluruh dunia setiap tahunnya."
+    "Indonesia adalah negara kepulauan terbesar dengan lebih dari 17.000 pulau, memberikan garis pantai terpanjang kedua di dunia (54.716 km).",
+    "Terletak di Cincin Api Pasifik dan jalur equator, menciptakan kekayaan tanah vulkanik yang sangat subur untuk pertanian.",
+    "Posisi strategis di persimpangan Samudra Hindia dan Pasifik menjadikan Indonesia jalur perdagangan maritim internasional vital.",
+    "Letak khatulistiwa memberikan iklim tropis sepanjang tahun, memungkinkan panen berkali-kali untuk komoditas seperti padi, kelapa sawit, dan rempah-rempah.",
+    "Laut territorial yang sangat luas (6,16 juta km²) menyediakan sumber daya perikanan melimpah."
   ],
   "kerugian_geografis": [
-    "Iklim tropis juga berarti curah hujan tinggi yang bisa menyebabkan banjir dan tanah longsor di musim hujan.",
-    "Ukuran yang kecil dengan populasi padat membuat Indonesia menghadapi tantangan ruang hidup dan ketergantungan pada impor.",
-    "Sebagai negara kepulauan, Indonesia rentan terhadap kenaikan permukaan laut akibat perubahan iklim global."
+    "Berada di Cincin Api Pasifik membuat Indonesia sangat rentan terhadap gempa bumi, tsunami, dan letusan gunung berapi (lebih dari 130 gunung aktif).",
+    "Sebagai negara kepulauan dengan 17.000+ pulau, distribusi barang dan konektivitas antar pulau sangat sulit dan mahal.",
+    "Rendahnya rata-rata ketinggian wilayah (+/- 600m) dan panjang pantai membuat Indonesia rentan terhadap kenaikan permukaan laut dan banjir rob.",
+    "Curah hujan tinggi di musim hujan sering menyebabkan banjir dan tanah longsor, terutama di daerah pegunungan."
   ],
   "fakta_unik": [
-    "Indonesia memiliki lebih dari 17.000 pulau, menjadikannya negara kepulauan terbesar di dunia!",
-    "Indonesia adalah rumah bagi komodo, kadal terbesar di dunia yang hanya ada di Pulau Komodo dan sekitarnya.",
-    "Danau Toba di Sumatera adalah danau vulkanik terbesar di dunia, terbentuk dari letusan dahsyat 74.000 tahun lalu.",
-    "Indonesia mengekspor cengkeh dan pala rempah-rempah yang dulunya lebih berharga daripada emas di Eropa!",
-    "Dengan populasi ratusan juta, Indonesia adalah salah satu negara terpadat di dunia!"
+    "Indonesia memiliki lebih dari 17.000 pulau—hanya sekitar 6.000 yang dihuni!",
+    "Komodo, kadal terbesar di dunia (bisa sampai 3 meter!), hanya hidup di Indonesia (Pulau Komodo, Rinca, Flores).",
+    "Danau Toba di Sumatera adalah danau vulkanik terbesar di dunia, terbentuk dari letusan supervulkan 74.000 tahun lalu!",
+    "Indonesia adalah produsen cengkeh dan pala terbesar—rempah ini dulunya lebih berharga daripada emas di Eropa!"
   ],
-  "youtube_id": null
+  "youtube_id": "NwPBFrKgqUA"
 }

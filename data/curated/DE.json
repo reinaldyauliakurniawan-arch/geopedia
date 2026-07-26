@@ -1,21 +1,24 @@
 {
   "iso_a2": "DE",
-  "sumber_isi": "ai_generated",
+  "sumber_isi": "ai_generated_v2_factual",
   "terakhir_diubah": "2026-07-26",
   "keuntungan_geografis": [
-    "Meskipun kecil, ukuran Germany membuatnya mudah dikelola dan efisien dalam pelayanan publik.",
-    "Iklim tropis Germany memungkinkan pertanian sepanjang tahun dengan hasil panen beragam seperti padi, kelapa, dan buah-buahan tropis.",
-    "Posisi astronomis Germany memberikan akses ke jalur perdagangan dan komunikasi internasional."
+    "Terletak di jantung Eropa Tengah—posisi ideal untuk perdagangan darat ke semua arah (9 negara tetangga).",
+    "Sungai Rhein adalah jalur air tersibuk di Eropa—menghubungkan Laut Utara ke pedalaman Swiss.",
+    "Dataran Utara Jerman subur untuk pertanian, sementara hutan hitam (Schwarzwald) dan Bavarian Forest menyediakan kayu.",
+    "Cadangan batubara (Ruhr), lignite, dan garam potash—dasar industrialisasi historis.",
+    "Jaringan sungai dan kanal (Rhein-Main-Danube) menghubungkan Laut Utara ke Laut Hitam."
   ],
   "kerugian_geografis": [
-    "Iklim tropis juga berarti curah hujan tinggi yang bisa menyebabkan banjir dan tanah longsor di musim hujan.",
-    "Ukuran yang kecil dengan populasi padat membuat Germany menghadapi tantangan ruang hidup dan ketergantungan pada impor."
+    "Tidak memiliki akses langsung ke laut hangat (Mediterania)—pelabuhan utama di Laut Utara (Hamburg) bisa beku di musim dingin.",
+    "Berada di jalur cuaca Atlantik—badai musim dingin bisa membawa angin kencang dan banjir sungai.",
+    "Ketergantungan pada energi impor (gas, minyak) karena cadangan domestik terbatas."
   ],
   "fakta_unik": [
-    "Jerman adalah negara kelahiran mobil modern—Karl Benz menciptakan mobil bermesin pertama tahun 1886.",
-    "Hutan Hitam (Schwarzwald) di Jerman terinspirasi cerita Grimm seperti Hansel dan Gretel.",
-    "Jerman mendaur ulang sekitar 65% sampahnya—salah satu tingkat daur ulang tertinggi di dunia!",
-    "Germany begitu kecil sehingga kamu bisa berkeliling seluruh negara dalam hitungan jam atau bahkan menit!"
+    "Jerman adalah TEMPAT LAHIR mobil modern—Karl Benz menciptakan mobil bermesin pertama 1886!",
+    "Hutan Hitam (Schwarzwald) menginspirasi cerita Grimm seperti Hansel dan Gretel!",
+    "Jerman MENDAUR ULANG ~65% sampahnya—salah satu tingkat daur ulang tertinggi di dunia!",
+    "Autobahn Jerman adalah satu-satunya jalan tol publik di dunia TANPA BATAS KECEPATAN umum!"
   ],
-  "youtube_id": null
+  "youtube_id": "aebYVxrfFzo"
 }
