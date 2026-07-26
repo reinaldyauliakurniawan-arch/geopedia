@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GeoPedia - Ensiklopedia Dunia Interaktif untuk Anak</title>
+    <meta name="description" content="Jelajahi dunia! Peta interaktif 195 negara dengan info lengkap, foto, video, dan fakta menarik.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- D3.js for map rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-content">
+            <h1 class="logo">🌍 GeoPedia</h1>
+            <p class="tagline">Ensiklopedia Dunia Interaktif</p>
+        </div>
+        
+        <!-- Search Box -->
+        <div class="search-container">
+            <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" id="search-input" placeholder="Cari negara..." autocomplete="off">
+                <div id="search-results" class="search-results hidden"></div>
+            </div>
+        </div>
+        
+        <!-- Random Country Button -->
+        <button id="random-btn" class="random-btn" title="Kejutkan Aku!">
+            🎲 Kejutkan Aku!
+        </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Map Container -->
+        <div class="map-wrapper">
+            <div id="map-container" class="map-container">
+                <svg id="map-svg"></svg>
+                <div id="map-loading" class="map-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Memuat peta dunia...</p>
+                </div>
+            </div>
+            
+            <!-- Layer Controls -->
+            <div class="layer-controls">
+                <span class="layer-label">Layer:</span>
+                <button class="layer-btn active" data-layer="countries" title="Negara">
+                    🗺️ Negara
+                </button>
+                <button class="layer-btn" data-layer="mountains" title="Gunung & Pegunungan">
+                    ⛰️ Gunung
+                </button>
+                <button class="layer-btn" data-layer="rivers" title="Sungai">
+                    🌊 Sungai
+                </button>
+                <button class="layer-btn" data-layer="lakes" title="Danau">
+                    💧 Danau
+                </button>
+                <button class="layer-btn" data-layer="seas" title="Laut & Selat">
+                    🌐 Laut & Selat
+                </button>
+            </div>
+            
+            <!-- Zoom Controls -->
+            <div class="zoom-controls">
+                <button id="zoom-in" class="zoom-btn" title="Perbesar">+</button>
+                <button id="zoom-out" class="zoom-btn" title="Perkecil">−</button>
+                <button id="zoom-reset" class="zoom-btn" title="Reset">⟲</button>
+            </div>
+        </div>
+
+        <!-- Country Info Panel (Sidebar/Bottom Sheet) -->
+        <aside id="country-panel" class="country-panel hidden">
+            <button id="panel-close" class="panel-close" aria-label="Tutup panel">&times;</button>
+            
+            <div class="panel-content">
+                <!-- Hero Image / Flag -->
+                <div class="panel-hero">
+                    <img id="panel-image" src="" alt="" class="panel-image">
+                    <div class="panel-flag">
+                        <img id="panel-flag" src="" alt="Bendera" class="flag-img">
+                    </div>
+                </div>
+                
+                <!-- Country Name & Basic Info -->
+                <div class="panel-header">
+                    <h2 id="panel-country-name" class="country-name"></h2>
+                    <div class="basic-info">
+                        <div class="info-item">
+                            <span class="info-icon">🏛️</span>
+                            <span><strong>Ibu Kota:</strong> <span id="panel-capital"></span></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">👥</span>
+                            <span><strong>Populasi:</strong> <span id="panel-population"></span></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📐</span>
+                            <span><strong>Luas:</strong> <span id="panel-area"></span></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">🌏</span>
+                            <span><strong>Region:</strong> <span id="panel-region"></span></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">💬</span>
+                            <span><strong>Bahasa:</strong> <span id="panel-languages"></span></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">💰</span>
+                            <span><strong>Mata Uang:</strong> <span id="panel-currencies"></span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Description -->
+                <section class="panel-section">
+                    <h3 class="section-title">📖 Tentang Negara Ini</h3>
+                    <p id="panel-description" class="description-text"></p>
+                    <a id="wiki-link" href="#" target="_blank" rel="noopener" class="wiki-link">
+                        Baca selengkapnya di Wikipedia →
+                    </a>
+                </section>
+                
+                <!-- Video Section -->
+                <section class="panel-section video-section">
+                    <h3 class="section-title">🎬 Video Menarik</h3>
+                    <div id="video-container" class="video-container">
+                        <iframe id="youtube-iframe" src="" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <a id="youtube-fallback" href="#" target="_blank" rel="noopener" class="youtube-fallback hidden">
+                        🔍 Cari video di YouTube →
+                    </a>
+                </section>
+                
+                <!-- Geographic Advantages -->
+                <section class="panel-section">
+                    <h3 class="section-title">✅ Keuntungan Geografis</h3>
+                    <ul id="panel-advantages" class="fact-list advantages-list"></ul>
+                </section>
+                
+                <!-- Geographic Disadvantages -->
+                <section class="panel-section">
+                    <h3 class="section-title">⚠️ Tantangan Geografis</h3>
+                    <ul id="panel-disadvantages" class="fact-list disadvantages-list"></ul>
+                </section>
+                
+                <!-- Fun Facts -->
+                <section class="panel-section">
+                    <h3 class="section-title">🌟 Fakta Unik</h3>
+                    <ul id="panel-facts" class="fact-list facts-list"></ul>
+                </section>
+            </div>
+        </aside>
+
+        <!-- Feature Info Panel (for mountains, rivers, lakes, seas) -->
+        <aside id="feature-panel" class="feature-panel hidden">
+            <button id="feature-panel-close" class="panel-close" aria-label="Tutup panel">&times;</button>
+            <div class="feature-panel-content">
+                <div id="feature-icon" class="feature-icon"></div>
+                <h3 id="feature-name" class="feature-name"></h3>
+                <p id="feature-type" class="feature-type"></p>
+                <p id="feature-description" class="feature-description"></p>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <p class="footer-attribution">
+                Data peta: <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a> (Public Domain) | 
+                Data negara: <a href="https://restcountries.com/" target="_blank" rel="noopener">REST Countries API</a> |
+                Foto: <a href="https://id.wikipedia.org/" target="_blank" rel="noopener">Wikipedia Bahasa Indonesia</a> (CC BY-SA) |
+                Bendera: <a href="https://flagcdn.com/" target="_blank" rel="noopener">flagcdn.com</a>
+            </p>
+            <p class="footer-copy">&copy; 2026 GeoPedia - Belajar Geografi Jadi Seru!</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- Scripts (order matters) -->
+    <script src="data-sources.js"></script>
+    <script src="map-render.js"></script>
+    <script src="country-panel.js"></script>
+    <script src="feature-panel.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
