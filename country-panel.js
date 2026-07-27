@@ -29,6 +29,12 @@ const GeoCountryPanel = (() => {
             return;
         }
         
+        // Setup error overlay close button
+        const errorCloseBtn = document.getElementById('panel-error-close');
+        if (errorCloseBtn) {
+            errorCloseBtn.addEventListener('click', hide);
+        }
+        
         // Setup close button
         const closeBtn = document.getElementById('panel-close');
         if (closeBtn) {
@@ -75,6 +81,7 @@ const GeoCountryPanel = (() => {
         
         // Show panel with loading state
         panel.classList.remove('hidden');
+        document.getElementById('panel-error-overlay')?.classList.add('hidden');
         showPanelLoading(true);
         
         try {
@@ -297,45 +304,30 @@ const GeoCountryPanel = (() => {
     }
 
     /**
-     * Show/hide loading state within panel
+     * Show/hide loading state via overlay — never touches .panel-content innerHTML
      */
     function showPanelLoading(show) {
-        const content = panel?.querySelector('.panel-content');
-        if (content) {
+        const overlay = document.getElementById('panel-loading-overlay');
+        if (overlay) {
             if (show) {
-                content.innerHTML = `
-                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px;">
-                        <div class="loading-spinner"></div>
-                        <p style="margin-top: 16px; font-family: var(--font-display); color: var(--color-text-light);">
-                            Memuat informasi...
-                        </p>
-                    </div>
-                `;
+                overlay.classList.remove('hidden');
+            } else {
+                overlay.classList.add('hidden');
             }
         }
     }
 
     /**
-     * Show error state in panel
+     * Show error state via overlay — never touches .panel-content innerHTML
      */
     function showErrorState(message) {
-        const content = panel?.querySelector('.panel-content');
-        if (content) {
-            content.innerHTML = `
-                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px; text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 16px;">😅</div>
-                    <h3 style="font-family: var(--font-display); color: var(--color-text); margin-bottom: 8px;">
-                        Oops! Ada Masalah
-                    </h3>
-                    <p style="color: var(--color-text-light); max-width: 280px;">
-                        ${message || 'Gagal memuat data negara. Coba lagi nanti ya!'}
-                    </p>
-                    <button onclick="GeoCountryPanel.hide()" 
-                            style="margin-top: 20px; padding: 10px 24px; background: var(--color-primary); color: white; border: none; border-radius: var(--radius-full); font-weight: 600; cursor: pointer;">
-                        Tutup
-                    </button>
-                </div>
-            `;
+        const overlay = document.getElementById('panel-error-overlay');
+        const msgEl = document.getElementById('panel-error-message');
+        if (msgEl) {
+            msgEl.textContent = message || 'Gagal memuat data negara. Coba lagi nanti ya!';
+        }
+        if (overlay) {
+            overlay.classList.remove('hidden');
         }
     }
 
