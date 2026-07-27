@@ -1,23 +1,22 @@
 {
   "iso_a2": "IS",
   "sumber_isi": "ai_generated_v3_audited",
-  "terakhir_diubah": "2026-07-26",
+  "terakhir_diubah": "2026-07-27",
   "keuntungan_geografis": [
-    "Ukuran wilayah Iceland (103 ribu km²) cukup untuk mendukung diversifikasi ekonomi dan pertanian.",
-    "Sebagai negara kepulauan/pulau, Iceland memiliki garis pantai yang sepenuhnya dikelola untuk perikanan dan pariwisata.",
-    "Wilayah utara Iceland menyimpan cadangan mineral dan sumber daya alam yang belum sepenuhnya dieksploitasi.",
-    "Posisi di Eropa memberikan Iceland akses ke pasar tunggal Eropa dan infrastruktur transportasi maju."
+    "Islandia terletak di atas celah Mid-Atlantic Ridge, memberikan akses ke sumber energi geotermal melimpah — 90% rumah tangga dipanaskan panas bumi.",
+    "Perairan Islandia kaya akan ikan (cod, haddock, herring) karena percampuran Arus Teluk dan Arus Arktik — perikanan menyumbang 40% ekspor.",
+    "Posisi di Atlantik Utara menjadikan Bandara Keflavik pemberhentian strategis untuk penerbangan trans-Atlantik."
   ],
   "kerugian_geografis": [
-    "Musim dingin yang ekstrem dan panjang di Iceland membatasi pertanian, konstruksi, dan aktivitas outdoor.",
-    "Beberapa daerah di Iceland mungkin menghadapi tantangan akses atau kondisi geografis yang menantang."
+    "Islandia terletak di atas hotspot vulkanik aktif — lebih dari 130 gunung berapi, letusan Eyjafjallajokull 2010 menghentikan penerbangan Eropa.",
+    "Iklim sub-arktik dengan musim dingin panjang dan sedikit sinar matahari (hari terpendek 4 jam siang) membatasi pertanian."
   ],
   "fakta_unik": [
-    "Iceland berada di LATITUDIN TINGGI—mengalami MUSIM PANJANG MIDNIGHT SUN dan polar night!",
-    "Islandia adalah SATU-SATUNYA negara di dunia TANPA NYAMUK sama sekali!",
-    "Iceland menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
+    "Gletser Vatnajokull terbesar di Eropa (8.100 km²) — di bawahnya ada gunung berapi yang menyebabkan letusan jokulhlaup (banjir gletser).",
+    "Sungai Thjorsa adalah sungai terpanjang di Islandia (230 km) — hampir semua sungai Islandia mengalir dari gletser ke laut.",
+    "Blue Lagoon adalah laguna geotermal buatan yang airnya berasal dari pembangkit listrik geotermal Svartsengi."
   ],
-  "youtube_id": null,
+  "youtube_id": "cVF40bfc16cc12eYyAQ",
   "adalah_negara": true,
   "designasi": "Negara"
 }

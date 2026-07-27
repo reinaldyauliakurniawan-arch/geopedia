@@ -1,1 +1,25 @@
-{"iso_a2": "AQ", "sumber_isi": "manual_verified_v4", "terakhir_diubah": "2026-07-27", "keuntungan_geografis": ["Antartika adalah benua TERLUAS di dunia (14.2 juta km²)—lebih besar dari Eropa dan Australia!", "Es Antartika menyimpan 70% air tawar dunia—sumber daya air potensial masa depan.", "Lokasi terpencil menjadikan Antartika laboratorium alam unik untuk penelitian iklim dan astronomi.", "Perjanjian Antartika melindungi seluruh benua untuk kepentingan ilmiah dan perdamaian."], "kerugian_geografis": ["Suhu bisa mencapai -89°C—terdingin di Bumi, membuat hunian manusia hampir mustahil tanpa teknologi canggih.", "Angin katabatik bisa mencapai 300+ km/jam—berbahaya untuk segala aktivitas outdoor.", "6 bulan malam total (polar night) setiap tahun—membatasi penelitian visual dan energi surya."], "fakta_unik": ["Antartika adalah SATU-SATUNYA benua TANPA PENDUDUK TETAP—hanya 1,000-5,000 peneliti musiman!", "Antartika memiliki GLETSER TERBESAR di dunia—Ice Shelf Ross sebesar Prancis!", "Di Antartika ada GUNUNG API yang aktif di bawah es—Gunung Erebus!", "Antartika adalah PADANG PASIR TERBESAR—curahan hujan sangat rendah (hanya 200mm/tahun di pantai)"], "youtube_id": null, "adalah_negara": false, "designasi": "Benua/Wilayah Internasional"}
+{
+  "iso_a2": "AQ",
+  "sumber_isi": "manual_verified_v4",
+  "terakhir_diubah": "2026-07-27",
+  "keuntungan_geografis": [
+    "Antartika adalah benua TERLUAS di dunia (14.2 juta km²)—lebih besar dari Eropa dan Australia!",
+    "Es Antartika menyimpan 70% air tawar dunia—sumber daya air potensial masa depan.",
+    "Lokasi terpencil menjadikan Antartika laboratorium alam unik untuk penelitian iklim dan astronomi.",
+    "Perjanjian Antartika melindungi seluruh benua untuk kepentingan ilmiah dan perdamaian."
+  ],
+  "kerugian_geografis": [
+    "Suhu bisa mencapai -89°C—terdingin di Bumi, membuat hunian manusia hampir mustahil tanpa teknologi canggih.",
+    "Angin katabatik bisa mencapai 300+ km/jam—berbahaya untuk segala aktivitas outdoor.",
+    "6 bulan malam total (polar night) setiap tahun—membatasi penelitian visual dan energi surya."
+  ],
+  "fakta_unik": [
+    "Antartika adalah SATU-SATUNYA benua TANPA PENDUDUK TETAP—hanya 1,000-5,000 peneliti musiman!",
+    "Antartika memiliki GLETSER TERBESAR di dunia—Ice Shelf Ross sebesar Prancis!",
+    "Di Antartika ada GUNUNG API yang aktif di bawah es—Gunung Erebus!",
+    "Antartika adalah PADANG PASIR TERBESAR—curahan hujan sangat rendah (hanya 200mm/tahun di pantai)"
+  ],
+  "youtube_id": "n5J1NP1hEdA",
+  "adalah_negara": false,
+  "designasi": "Benua/Wilayah Internasional"
+}
