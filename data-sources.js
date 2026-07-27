@@ -42,7 +42,13 @@ const GeoDataSources = (() => {
         'TUN': 'TN', 'TUR': 'TR', 'TUV': 'TV', 'TZA': 'TZ', 'UGA': 'UG',
         'UKR': 'UA', 'URY': 'UY', 'USA': 'US', 'UZB': 'UZ', 'VEN': 'VE',
         'VNM': 'VN', 'VUT': 'VU', 'WSM': 'WS', 'YEM': 'YE', 'ZAF': 'ZA',
-        'ZMB': 'ZM', 'ZWE': 'ZW'
+        'ZMB': 'ZM', 'ZWE': 'ZW',
+        // Obscure territories without standard ISO_A2 — mapped to custom codes
+        'ATC': 'X1',  // Ashmore and Cartier Islands
+        'CYN': 'X2',  // Northern Cyprus
+        'IOA': 'X3',  // British Indian Ocean Territory (alternate code)
+        'KAS': 'X4',  // Siachen Glacier
+        'SOL': 'X5'   // Somaliland
     };
     
     /**

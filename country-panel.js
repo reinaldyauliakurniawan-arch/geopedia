@@ -78,10 +78,9 @@ const GeoCountryPanel = (() => {
         showPanelLoading(true);
         
         try {
-            // Fetch all data in parallel for speed
-            const [restCountriesData, wikiData, curatedData] = await Promise.all([
+            // Fetch REST Countries data and curated data in parallel first
+            const [restCountriesData, curatedData] = await Promise.all([
                 fetchRestCountryData(isoA2),
-                GeoDataSources.fetchWikipediaInfo(null, isoA2),  // Will use cached or skip
                 GeoDataSources.loadCuratedData(isoA2)
             ]);
             
@@ -89,19 +88,14 @@ const GeoCountryPanel = (() => {
                 throw new Error(`Data negara ${isoA2} tidak ditemukan`);
             }
             
-            // We need the actual country name for Wikipedia fetch
+            // Now fetch Wikipedia using the actual country name (only once)
             const countryName = restCountriesData.name.common;
-            
-            // Fetch Wikipedia with correct name if not cached
-            let finalWikiData = wikiData;
-            if (!wikiData.thumbnail && !wikiData.extract) {
-                finalWikiData = await GeoDataSources.fetchWikipediaInfo(countryName, isoA2);
-            }
+            const wikiData = await GeoDataSources.fetchWikipediaInfo(countryName, isoA2);
             
             // Build complete data object
             const countryData = GeoDataSources.buildCountryData(
                 restCountriesData,
-                finalWikiData,
+                wikiData,
                 curatedData
             );
             

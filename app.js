@@ -13,6 +13,7 @@
     const AppState = {
         isInitialized: false,
         countriesData: [],  // All countries from REST Countries API
+        namaIndonesia: {},  // ISO_A2 -> Indonesian name mapping
         isLoading: true,
         activeLayer: {
             countries: true,
@@ -70,11 +71,15 @@
         try {
             showMapLoading(true);
             
-            // Fetch all data in parallel
-            const [countriesGeoJSON, restCountries] = await Promise.all([
+            // Fetch all data in parallel (including Indonesian names)
+            const [countriesGeoJSON, restCountries, namaIndonesia] = await Promise.all([
                 GeoDataSources.loadGeoJSON('countries'),
-                GeoDataSources.fetchAllCountries()
+                GeoDataSources.fetchAllCountries(),
+                fetch('data/nama-indonesia.json').then(r => r.json()).catch(() => ({}))
             ]);
+
+            // Store Indonesian name mapping
+            AppState.namaIndonesia = namaIndonesia;
             
             // Store REST Countries data for search
             AppState.countriesData = restCountries;
@@ -304,7 +309,7 @@
             return;
         }
         
-        // Filter countries by name (Indonesian or English)
+        // Filter countries by name (Indonesian, English, or native)
         const matches = AppState.countriesData.filter(country => {
             const nameCommon = (country.name.common || '').toLowerCase();
             const nameNative = Object.values(country.name.native || {})
@@ -313,8 +318,10 @@
                 .toLowerCase();
             const cca2 = (country.cca2 || '').toLowerCase();
             const cca3 = (country.cca3 || '').toLowerCase();
+            const namaID = (AppState.namaIndonesia[country.cca2] || '').toLowerCase();
             
-            return nameCommon.includes(query) ||
+            return namaID.includes(query) ||
+                   nameCommon.includes(query) ||
                    nameNative.includes(query) ||
                    cca2.includes(query) ||
                    cca3.includes(query);
@@ -330,16 +337,18 @@
         } else {
             resultsContainer.innerHTML = matches.map(country => {
                 const flagUrl = `https://flagcdn.com/w40/${country.cca2.toLowerCase()}.png`;
+                const namaID = AppState.namaIndonesia[country.cca2] || country.name.common;
+                const namaEN = (AppState.namaIndonesia[country.cca2]) ? country.name.common : '';
                 return `
                     <div class="search-result-item" 
                          data-iso-a2="${country.cca2}" 
-                         data-name="${escapeHtml(country.name.common)}"
+                         data-name="${escapeHtml(namaID)}"
                          tabindex="0"
                          role="button">
                         <img src="${flagUrl}" alt="" class="search-result-flag" loading="lazy">
                         <div>
-                            <div class="search-result-name">${escapeHtml(country.name.common)}</div>
-                            <div class="search-result-region">${escapeHtml(country.region || '')} • ${escapeHtml(country.subregion || '')}</div>
+                            <div class="search-result-name">${escapeHtml(namaID)}</div>
+                            ${namaEN ? `<div class="search-result-region">${escapeHtml(namaEN)}</div>` : `<div class="search-result-region">${escapeHtml(country.region || '')} • ${escapeHtml(country.subregion || '')}</div>`}
                         </div>
                     </div>
                 `;
