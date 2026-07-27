@@ -12,11 +12,11 @@
     "Beberapa daerah di St. Kitts and Nevis mungkin menghadapi tantangan akses atau kondisi geografis yang menantang."
   ],
   "fakta_unik": [
-    "St. Kitts and Nevis adalah salah satu wilayah BERPENDUDUK PALING SEDIKIT di dunia—hanya 52,715 orang!",
+    "St. Kitts and Nevis adalah negara berdaulat anggota PBB dan negara terkecil di benua Amerika berdasarkan luas wilayah maupun jumlah penduduk.",
     "St. Kitts and Nevis sangat kecil—kamu bisa menjelajahi seluruh wilayah dalam HITUNGAN JAM!",
     "St. Kitts and Nevis menunjukkan betapa beragamnya kondisi geografis bisa di seluruh dunia."
   ],
   "youtube_id": null,
-  "adalah_negara": false,
-  "designasi": "Wilayah/Teritori"
+  "adalah_negara": true,
+  "designasi": "Negara"
 }
