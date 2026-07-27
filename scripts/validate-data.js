@@ -191,8 +191,121 @@ function check3_NonSovereignLabeling() {
     }
 }
 
-function check4_FactVerification() {
-    console.log('\n\n📋 CHECK 4: Fact Verification (Basic Sanity Checks)');
+function check4_ISOCollision() {
+    console.log('\n\n📋 CHECK 4: ISO Code Collision Detection');
+    console.log('=' .repeat(60));
+
+    const geojson = JSON.parse(fs.readFileSync(GEOJSON_PATH, 'utf8'));
+    const normalizeMap = {
+        'FRA': 'FR', 'NOR': 'NO', 'ATA': 'AQ',
+        'ABW': 'AW', 'AGO': 'AO', 'ALD': 'AX', 'AND': 'AD', 'ARE': 'AE',
+        'ARM': 'AM', 'ATF': 'TF', 'ATG': 'AG', 'AUT': 'AT', 'BDI': 'BI',
+        'BEN': 'BJ', 'BGD': 'BD', 'BHS': 'BS', 'BIH': 'BA', 'BLR': 'BY',
+        'BLZ': 'BZ', 'BRB': 'BB', 'BRN': 'BN', 'CAF': 'CF', 'CHE': 'CH',
+        'CMR': 'CM', 'COG': 'CG', 'COL': 'CO', 'CRI': 'CR', 'CUB': 'CU',
+        'CYP': 'CY', 'CZE': 'CZ', 'DEU': 'DE', 'DNK': 'DK', 'EGY': 'EG',
+        'ERI': 'ER', 'ESP': 'ES', 'EST': 'EE', 'ETH': 'ET', 'FIN': 'FI',
+        'FJI': 'FJ', 'FRO': 'FO', 'GAB': 'GA', 'GBR': 'GB', 'GEO': 'GE',
+        'GHA': 'GH', 'GIN': 'GN', 'GMB': 'GM', 'GNB': 'GW', 'GRC': 'GR',
+        'GRD': 'GD', 'GRL': 'GL', 'GTM': 'GT', 'GUY': 'GY', 'HND': 'HN',
+        'HRV': 'HR', 'HTI': 'HT', 'HUN': 'HU', 'IDN': 'ID', 'IND': 'IN',
+        'IRL': 'IE', 'IRN': 'IR', 'IRQ': 'IQ', 'ISL': 'IS', 'ISR': 'IL',
+        'ITA': 'IT', 'JAM': 'JM', 'JOR': 'JO', 'JPN': 'JP', 'KAZ': 'KZ',
+        'KEN': 'KE', 'KGZ': 'KG', 'LAO': 'LA', 'LBN': 'LB', 'LBR': 'LR',
+        'LBY': 'LY', 'LIE': 'LI', 'LKA': 'LK', 'LSO': 'LS', 'LTU': 'LT',
+        'LUX': 'LU', 'LVA': 'LV', 'MAR': 'MA', 'MCO': 'MC', 'MDA': 'MD',
+        'MDV': 'MV', 'MEX': 'MX', 'MKD': 'MK', 'MLI': 'ML', 'MLT': 'MT',
+        'MNE': 'ME', 'MNG': 'MN', 'MOZ': 'MZ', 'MRT': 'MR', 'MUS': 'MU',
+        'MWI': 'MW', 'MYS': 'MY', 'NAM': 'NA', 'NLD': 'NL', 'NZL': 'NZ',
+        'NIC': 'NI', 'NER': 'NE', 'NGA': 'NG', 'PRK': 'KP', 'PAN': 'PA',
+        'PER': 'PE', 'PHL': 'PH', 'PNG': 'PG', 'POL': 'PL', 'PRY': 'PY',
+        'PRT': 'PT', 'QAT': 'QA', 'ROU': 'RO', 'RUS': 'RU', 'RWA': 'RW',
+        'SDN': 'SD', 'SEN': 'SN', 'SGP': 'SG', 'SLV': 'SV', 'SRB': 'RS',
+        'SUR': 'SR', 'SVK': 'SK', 'SVN': 'SI', 'SWE': 'SE', 'SYR': 'SY',
+        'TCD': 'TD', 'TGO': 'TG', 'TJK': 'TJ', 'THA': 'TH', 'TUN': 'TN',
+        'TUR': 'TR', 'TZA': 'TZ', 'UGA': 'UG', 'UKR': 'UA', 'URY': 'UY',
+        'UZB': 'UZ', 'VEN': 'VE', 'VNM': 'VN', 'YEM': 'YE', 'ZAF': 'ZA',
+        'ZMB': 'ZM', 'ZWE': 'ZW', 'BFA': 'BF', 'CIV': 'CI', 'CMR': 'CM',
+        'COD': 'CD', 'COG': 'CG', 'DJI': 'DJ', 'ERI': 'ER', 'ETH': 'ET',
+        'GMB': 'GM', 'GHA': 'GH', 'GIN': 'GN', 'KEN': 'KE', 'LBR': 'LR',
+        'LBY': 'LY', 'MDG': 'MG', 'MRT': 'MR', 'MUS': 'MU', 'NAM': 'NA',
+        'NER': 'NE', 'NGA': 'NG', 'RWA': 'RW', 'SEN': 'SN', 'SLE': 'SL',
+        'SOM': 'SO', 'SSD': 'SS', 'TZA': 'TZ', 'UGA': 'UG', 'ZMB': 'ZM',
+        'ZWE': 'ZW', 'CUB': 'CU', 'DOM': 'DO', 'GTM': 'GT', 'HND': 'HN',
+        'HTI': 'HT', 'JAM': 'JM', 'NIC': 'NI', 'PAN': 'PA', 'SLV': 'SV',
+        'BHS': 'BS', 'BLZ': 'BZ', 'CAN': 'CA', 'CRI': 'CR', 'GRD': 'GD',
+        'GUY': 'GY', 'HND': 'HN', 'JAM': 'JM', 'MEX': 'MX', 'PAN': 'PA',
+        'SLV': 'SV', 'TTO': 'TT', 'USA': 'US', 'ARG': 'AR', 'BOL': 'BO',
+        'BRA': 'BR', 'CHL': 'CL', 'COL': 'CO', 'ECU': 'EC', 'GUF': 'GF',
+        'GUY': 'GY', 'PRY': 'PY', 'PER': 'PE', 'SUR': 'SR', 'URY': 'UY',
+        'VEN': 'VE', 'ABW': 'AW', 'AIA': 'AI', 'ATG': 'AG', 'BES': 'BQ',
+        'BLM': 'BL', 'BVT': 'BV', 'CYM': 'KY', 'CXR': 'CX', 'CCK': 'CC',
+        'COK': 'CK', 'CUB': 'CU', 'CUW': 'CW', 'DMA': 'DM', 'FLK': 'FK',
+        'FRO': 'FO', 'GRL': 'GL', 'GUM': 'GU', 'GUY': 'GY', 'HMD': 'HM',
+        'HKG': 'HK', 'IMN': 'IM', 'IOT': 'IO', 'IRL': 'IE', 'JEY': 'JE',
+        'MAC': 'MO', 'MAF': 'MF', 'MSR': 'MS', 'NCL': 'NC', 'NIU': 'NU',
+        'NFK': 'NF', 'MNP': 'MP', 'PCN': 'PN', 'PRI': 'PR', 'PYF': 'PF',
+        'SHN': 'SH', 'SPM': 'PM', 'KNA': 'KN', 'LCA': 'LC', 'MAF': 'MF',
+        'VCT': 'VC', 'SGS': 'GS', 'SXM': 'SX', 'TCA': 'TC', 'TKL': 'TK',
+        'TON': 'TO', 'TUV': 'TV', 'UMI': 'UM', 'VGB': 'VG', 'VIR': 'VI',
+        'WLF': 'WF', 'WSM': 'WS', 'ASM': 'AS', 'GIB': 'GI', 'GRL': 'GL',
+        'GUM': 'GU', 'HKG': 'HK', 'MAC': 'MO', 'NFK': 'NF', 'PNG': 'PG',
+        'PRI': 'PR', 'VGB': 'VG'
+    };
+
+    const codeMap = new Map(); // normalized_code -> [{adm0_a3, name}]
+    let issues = [];
+
+    geojson.features.forEach(f => {
+        const isoA2 = f.properties.ISO_A2;
+        const adm0A3 = (f.properties.ADM0_A3 || '').toUpperCase();
+        const name = f.properties.NAME || 'Unknown';
+
+        let normalized = null;
+        if (isoA2 && isoA2 !== '-99' && isoA2.length === 2) {
+            normalized = isoA2.toUpperCase();
+        } else if (adm0A3 && adm0A3 !== '-99') {
+            if (normalizeMap[adm0A3]) {
+                normalized = normalizeMap[adm0A3];
+            } else if (adm0A3.length >= 2) {
+                normalized = adm0A3.substring(0, 2);
+            }
+        }
+
+        if (normalized) {
+            if (!codeMap.has(normalized)) codeMap.set(normalized, []);
+            codeMap.get(normalized).push({ adm0_a3: adm0A3, name });
+        }
+    });
+
+    // Check for collisions (multiple features mapping to same code)
+    let collisions = 0;
+    codeMap.forEach((features, code) => {
+        if (features.length > 1) {
+            collisions++;
+            issues.push({
+                code,
+                count: features.length,
+                features: features.map(f => `  ${f.adm0_a3} (${f.name})`)
+            });
+        }
+    });
+
+    if (collisions === 0) {
+        console.log(`✅ PASS: ${codeMap.size} unique ISO codes, 0 collisions`);
+        return true;
+    } else {
+        console.log(`❌ FAIL: ${collisions} collision(s) detected out of ${codeMap.size} codes:`);
+        issues.slice(0, 10).forEach(i => {
+            console.log(`   ${i.code} → ${i.count} features:`);
+            i.features.forEach(f => console.log(`     ${f}`));
+        });
+        return false;
+    }
+}
+
+function check5_FactVerification() {
+    console.log('\n\n📋 CHECK 5: Fact Verification (Basic Sanity Checks)');
     console.log('=' .repeat(60));
     
     const curatedFiles = fs.readdirSync(CURATED_DIR).filter(f => f.endsWith('.json'));
@@ -257,7 +370,8 @@ const results = {
     isoMatch: check1_ISOCodeMatch(),
     youtubeDupes: check2_YouTubeDuplicates(),
     nonSovereign: check3_NonSovereignLabeling(),
-    facts: check4_FactVerification()
+    isoCollision: check4_ISOCollision(),
+    facts: check5_FactVerification()
 };
 
 console.log('\n' + '='.repeat(60));

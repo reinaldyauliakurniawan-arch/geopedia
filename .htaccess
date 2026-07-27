@@ -1,0 +1,54 @@
+# GeoPedia - Compression & Caching Configuration
+# For Apache (InfinityFree) and compatible servers
+
+# ============================================
+# GZIP COMPRESSION
+# ============================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE application/geo+json
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ============================================
+# BROWSER CACHING (static assets)
+# ============================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # GeoJSON data files rarely change - cache 1 year
+    ExpiresByType application/geo+json "access plus 1 year"
+
+    # JSON curated data
+    ExpiresByType application/json "access plus 1 week"
+
+    # JS & CSS - cache 1 week (update on deploy)
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType text/css "access plus 1 week"
+
+    # Images
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+
+    # Fonts
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+</IfModule>
+
+# ============================================
+# SECURITY HEADERS
+# ============================================
+<IfModule mod_headers.c>
+    # Prevent MIME type sniffing
+    Header set X-Content-Type-Options "nosniff"
+
+    # XSS protection
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

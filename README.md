@@ -72,21 +72,21 @@ Klik negara untuk melihat:
 ├── country-panel.js        # Panel info negara
 ├── feature-panel.js        # Panel info fitur geografis
 ├── data-sources.js         # Fetch API & cache management
+├── .htaccess               # Kompresi gzip & caching (Apache/InfinityFree)
 ├── data/
-│   ├── curated/            # 236 file JSON kurasi per entitas
+│   ├── curated/            # 242 file JSON kurasi per entitas
 │   │   ├── ID.json         # Contoh: data Indonesia
 │   │   ├── US.json
 │   │   └── ...
 │   ├── countries-boundaries.geojson  # Batas negara
-│   ├── mountains.geojson             # Gunung/pegunungan
-│   ├── rivers.geojson                # Sungai
+│   ├── mountains.geojson             # Gunung/pegunungan (127 fitur)
+│   ├── rivers.geojson                # Sungai + lake centerlines
 │   ├── lakes.geojson                 # Danau
-│   └── seas-straits.geojson          # Laut, selat, teluk
-├── assets/
-│   ├── flags/              # Cache bendera lokal (opsional)
-│   └── icons/              # Ikon UI
-├── scripts/
-│   └── prepare-data.js     # Skrip persiapan data (development only)
+│   ├── seas-straits.geojson          # Laut, selat, teluk
+│   └── restcountries-fallback.json   # Cadangan data negara lokal
+├── scripts/                # ⚠️ JANGAN upload ke hosting — hanya development
+│   ├── prepare-data.js     # Skrip persiapan data
+│   └── validate-data.js    # Skrip validasi integritas data
 └── README.md               # Dokumentasi ini
 ```
 
@@ -117,13 +117,13 @@ Klik negara untuk melihat:
 1. Di dashboard InfinityFree, klik **"Control Panel"** > **"File Manager"**
 2. Navigasi ke folder `htdocs/` (ini adalah root website)
 3. Hapus file `default.php` (jika ada)
-4. Upload semua file dari folder proyek GeoPedia:
+4. Upload file-file berikut ke folder `htdocs/`:
    - `index.html`
    - `style.css`
-   - Semua file `.js` (app.js, map-render.js, dll)
-   - Folder `data/` beserta isinya
-   - Folder `assets/` (jika ada isi)
-5. Pastikan struktur file sama persis dengan aslinya
+   - `.htaccess` (untuk kompresi gzip & caching)
+   - Semua file `.js` (app.js, map-render.js, country-panel.js, feature-panel.js, data-sources.js)
+   - Folder `data/` beserta **seluruh** isinya (curated/, geojson, fallback)
+   - **JANGAN upload** folder `scripts/` — hanya dipakai saat development
 
 #### Opsi B: Menggunakan FileZilla (FTP Client)
 
@@ -222,10 +222,19 @@ cd geopedia
 # Jalankan skrip persiapan data (download GeoJSON & generate kurasi)
 node scripts/prepare-data.js
 
-# Buka di browser
-# Option 1: Double-click index.html
-# Option 2: Gunakan live server extension di VS Code
-# Option 3: python -m http.server 8000
+# ⚠️ PENTING: Jangan buka index.html langsung (double-click / file://)
+# Semua fetch() ke file lokal akan diblokir oleh kebijakan CORS browser.
+# App HARUS diakses lewat HTTP/HTTPS server.
+
+# Option 1 (rekomendasi): Python HTTP server
+python -m http.server 8000
+# Lalu buka http://localhost:8000 di browser
+
+# Option 2: Live Server extension di VS Code
+# Klik "Go Live" di kanan bawah VS Code
+
+# Option 3: Node.js http-server
+npx http-server -p 8000
 ```
 
 ### Struktur Kode
@@ -294,16 +303,19 @@ node scripts/prepare-data.js
 **Tidak!** Ini murni static site. Tinggal upload file-file HTML/CSS/JS ke hosting manapun.
 
 ### Q: Berapa ukuran total file?
-- GeoJSON files: ~18 MB (di-cache browser setelah pertama load)
+- GeoJSON files: ~16 MB (di-cache browser setelah pertama load, ~2 MB dengan kompresi gzip)
 - Curated JSON files: ~500 KB total
+- Fallback JSON: ~79 KB
 - JS + CSS: ~50 KB
-- Total first load: ~18.5 MB (kemudian jauh lebih kecil karena cache)
+- Total first load: ~17 MB tanpa kompresi, ~2-3 MB dengan gzip/brotli
 
 ### Q: Bagaimana cara update konten?
 Edit file JSON di `data/curated/`, lalu upload ulang. Tidak perlu build atau deploy ulang.
 
 ### Q: Apakah bisa offline?
-Sebagian! Setelah pertama kali load, data di-cache di `localStorage`. Tapi foto/video tetap butuh internet.
+Sebagian! Setelah pertama kali load, data GeoJSON dan negara di-cache di `localStorage`.
+Ada juga file `data/restcountries-fallback.json` sebagai cadangan jika REST Countries API tidak tersedia.
+Tapi foto dari Wikipedia dan video YouTube tetap butuh internet.
 
 ## 📄 Lisensi Proyek
 
@@ -320,14 +332,20 @@ Sebagian! Setelah pertama kali load, data di-cache di `localStorage`. Tapi foto/
 
 ### Country Count (Terverifikasi)
 - **193 Negara Berdaulat**: Sesuai anggota PBB + Vatikan (status observer spesial)
-- **43 Wilayah Dependensi/Territori**: Bukan negara berdaulat (Greenland, Puerto Rico, Antartika, dll)
-- **Total: 236 Entitas di Peta**
+- **49 Wilayah Dependensi/Territori**: Bukan negara berdaulat (Greenland, Puerto Rico, Antartika, dll)
+- **Total: 242 Entitas di Peta** (masing-masing punya file JSON kurasi)
 
 ### ISO Code Handling
-Natural Earth GeoJSON kadang menggunakan kode ISO yang berbeda dari standar ISO 3166-1 alpha-2. Aplikasi ini melakukan normalisasi otomatis:
+Natural Earth GeoJSON kadang menggunakan kode ISO yang berbeda dari standar ISO 3166-1 alpha-2. Aplikasi ini melakukan normalisasi otomatis via `ISO_CODE_NORMALIZE` di `data-sources.js`:
 - Prancis: FRA → FR
 - Norwegia: NOR → NO
 - Antartika: ATA → AQ
+
+Validasi tabrakan ISO (collision detection) otomatis tersedia di `scripts/validate-data.js` (Check 4). Jalankan setiap kali data GeoJSON di-update.
+
+### Data Freshness
+- **REST Countries API v3.1** telah di-deprecated oleh penyedianya. App masih mencoba endpoint tersebut, tapi jika gagal, fallback ke file lokal `data/restcountries-fallback.json`.
+- Saat deploy, pastikan app diakses lewat **HTTP/HTTPS**, bukan `file://` — semua `fetch()` ke file lokal akan diblokir CORS browser modern.
 
 ### Content Verification
 - Semua konten kurasi telah diaudit pada Juli 2026

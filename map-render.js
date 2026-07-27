@@ -254,6 +254,10 @@ const GeoMapRenderer = (() => {
     function renderRivers(geojson) {
         if (!layerGroups.rivers) return;
         
+        // Note: rivers.geojson contains both 'River' (359) and 'Lake Centerline' (103) features.
+        // Lake Centerlines are river segments that cross through lakes — they are intentionally
+        // included to maintain visual continuity of major rivers (e.g. Nile through Lake Victoria).
+        // Filtering them out would cause rivers to visually break at lake boundaries.
         const features = geojson.features || [];
         
         layerGroups.rivers.selectAll('*').remove();

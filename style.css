@@ -768,6 +768,10 @@ body::-webkit-scrollbar-thumb {
     margin-bottom: 10px;
 }
 
+.video-container.hidden {
+    display: none;
+}
+
 .video-container iframe {
     position: absolute;
     top: 0;

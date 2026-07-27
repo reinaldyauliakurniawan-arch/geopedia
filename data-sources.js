@@ -5,6 +5,8 @@
  */
 
 const GeoDataSources = (() => {
+    'use strict';
+
     // ============================================
     // ISO CODE NORMALIZATION (synced with map-render.js)
     // ============================================
@@ -72,8 +74,6 @@ const GeoDataSources = (() => {
     // Alias for map-render.js compatibility (BOTH names work now)
     window.normalizeISOCode = window.normalizeISOForDataSources;
 
-    'use strict';
-
     // ============================================
     // CONFIGURATION
     // ============================================
@@ -94,7 +94,8 @@ const GeoDataSources = (() => {
         // YouTube search fallback
         YOUTUBE_SEARCH_BASE: 'https://www.youtube.com/results?search_query=',
         
-        // Local GeoJSON files
+        // Local fallback JSON (generated from curated data)
+        REST_COUNTRIES_FALLBACK: 'data/restcountries-fallback.json',
         GEOJSON_PATHS: {
             countries: 'data/countries-boundaries.geojson',
             mountains: 'data/mountains.geojson',
@@ -321,24 +322,45 @@ const GeoDataSources = (() => {
             const response = await fetchWithTimeout(CONFIG.REST_COUNTRIES_ALL, 15000);
             const data = await response.json();
             
+            // API may return error object instead of array
+            if (!Array.isArray(data) || data.length === 0) {
+                throw new Error('API returned empty or invalid data');
+            }
+            
             // Cache the result
             CacheManager.set(CACHE_KEY, data, CONFIG.CACHE_DURATION.REST_COUNTRIES);
             console.log(`Fetched and cached ${data.length} countries`);
             
             return data;
         } catch (error) {
-            console.error('Failed to fetch countries:', error);
+            console.warn('REST Countries API failed:', error.message);
             
-            // Return cached data even if expired as fallback
+            // Try stale cache
             const staleCache = localStorage.getItem(CACHE_KEY);
             if (staleCache) {
                 try {
                     const { data } = JSON.parse(staleCache);
-                    console.log('Using stale cache as fallback');
-                    return data;
+                    if (Array.isArray(data) && data.length > 0) {
+                        console.log('Using stale cache as fallback');
+                        return data;
+                    }
                 } catch (e) {
                     // Ignore parse error
                 }
+            }
+            
+            // Last resort: local fallback file
+            try {
+                console.log('Loading local REST Countries fallback...');
+                const response = await fetchWithTimeout(CONFIG.REST_COUNTRIES_FALLBACK, 10000);
+                const data = await response.json();
+                
+                if (Array.isArray(data) && data.length > 0) {
+                    console.log(`Loaded ${data.length} countries from local fallback`);
+                    return data;
+                }
+            } catch (fallbackError) {
+                console.error('Local fallback also failed:', fallbackError);
             }
             
             throw new Error('Gagal memuat data negara. Periksa koneksi internet Anda.');
