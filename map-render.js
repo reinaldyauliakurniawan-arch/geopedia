@@ -36,7 +36,66 @@ const GeoMapRenderer = (() => {
     
     // Country data reference (for click events)
     let countriesData = [];
+
+    // Indonesian name mapping for features
+    let featureNamesID = { mountains: {}, rivers: {}, lakes: {}, seas: {} };
     
+    /**
+     * Load Indonesian feature names from data/nama-fitur-indonesia.json
+     */
+    function loadFeatureNames() {
+        fetch('data/nama-fitur-indonesia.json')
+            .then(r => r.json())
+            .then(data => {
+                featureNamesID = data;
+                console.log('Indonesian feature names loaded');
+            })
+            .catch(() => {
+                console.warn('Failed to load Indonesian feature names, using defaults');
+            });
+    }
+
+    /**
+     * Translate a feature name to Indonesian (fallback to original)
+     * @param {string} name - Original name
+     * @param {string} type - Feature type: mountain, river, lake, sea, country
+     */
+    function toIndonesian(name, type) {
+        if (!name) return 'Tidak diketahui';
+        if (type === 'country') return name; // Country names already in fallback JSON
+        const mapping = featureNamesID[type + 's'] || featureNamesID[type] || {};
+        return mapping[name] || name;
+    }
+
+    /**
+     * Attach tooltip hover behavior to a D3 selection
+     * @param {d3.Selection} selection
+     * @param {string} nameProp - 'NAME' for countries (uppercase), 'name' for features
+     * @param {string} featureType - 'country', 'mountain', 'river', 'lake', 'sea', etc.
+     */
+    function attachTooltip(selection, nameProp, featureType) {
+        const tooltip = document.getElementById('map-tooltip');
+        if (!tooltip) return;
+
+        selection
+            .on('mouseover', function(event, d) {
+                const rawName = d.properties[nameProp] || d.properties.NAME || d.properties.name || '';
+                tooltip.textContent = toIndonesian(rawName, featureType);
+                tooltip.classList.remove('hidden');
+            })
+            .on('mousemove', function(event) {
+                const container = document.getElementById('map-container');
+                if (!container) return;
+                const rect = container.getBoundingClientRect();
+                tooltip.style.left = (event.clientX - rect.left + 12) + 'px';
+                tooltip.style.top = (event.clientY - rect.top + 12) + 'px';
+            })
+            .on('mouseout', function() {
+                tooltip.classList.add('hidden');
+            });
+        return selection;
+    }
+
     // Callbacks
     let onCountryClick = null;
     let onFeatureClick = null;
@@ -87,13 +146,19 @@ const GeoMapRenderer = (() => {
             .on('zoom', onZoom);
         
         svg.call(zoom);
+
+        // Load Indonesian feature names for tooltips
+        loadFeatureNames();
         
-        // Create layer groups (order matters for rendering)
+        // Create layer groups (order matters: first appended = bottom layer)
+        layerGroups.countries = g.append('g').attr('class', 'layer-countries');
         layerGroups.seas = g.append('g').attr('class', 'layer-seas layer-hidden');
         layerGroups.lakes = g.append('g').attr('class', 'layer-lakes layer-hidden');
         layerGroups.rivers = g.append('g').attr('class', 'layer-rivers layer-hidden');
         layerGroups.mountains = g.append('g').attr('class', 'layer-mountains layer-hidden');
-        layerGroups.countries = g.append('g').attr('class', 'layer-countries');
+
+        // Click on empty SVG area clears highlight
+        svg.on('click', () => highlightCountry(null));
         
         // Store callbacks
         if (options.onCountryClick) onCountryClick = options.onCountryClick;
@@ -138,14 +203,11 @@ const GeoMapRenderer = (() => {
             .attr('role', 'button')
             .attr('aria-label', d => `Negara: ${d.properties.NAME || 'Unknown'}`);
         
-        // Check visited status and apply class
-        paths.each(function(d) {
-            const isoA2 = normalizeISOCode(d.properties.ISO_A2, d.properties.ADM0_A3);
-            if (isoA2 && window.GeoDataSources && GeoDataSources.VisitedTracker.isVisited(isoA2)) {
-                d3.select(this).classed('visited', true);
-            }
-        });
-        
+        // (Visited tracking is data-only, no permanent visual class)
+
+        // Attach tooltip
+        attachTooltip(paths, 'NAME', 'country');
+
         // Click handler
         paths.on('click', function(event, d) {
             event.stopPropagation();
@@ -176,13 +238,13 @@ const GeoMapRenderer = (() => {
             return;
         }
         
-        // Mark as visited
+        // Mark as visited (data tracking only, no permanent visual)
         if (window.GeoDataSources) {
             GeoDataSources.VisitedTracker.markVisited(isoA2);
-            
-            // Update visual state
-            d3.select(element).classed('visited', true);
         }
+
+        // Highlight on map
+        highlightCountry(isoA2);
         
         // Trigger callback
         if (onCountryClick) {
@@ -238,9 +300,10 @@ const GeoMapRenderer = (() => {
             .attr('d', path)
             .attr('data-name', d => d.properties.name || '')
             .attr('aria-label', d => `Gunung: ${d.properties.name || 'Unknown'}`)
+        attachTooltip(layerGroups.mountains.selectAll('path'), 'name', 'mountain')
             .on('click', function(event, d) {
                 event.stopPropagation();
-                handleFeatureClick('mountain', d.properties.name, this);
+                handleFeatureClick('mountain', toIndonesian(d.properties.name, 'mountain'), this);
             });
         
         loadedLayers.mountains = true;
@@ -270,9 +333,10 @@ const GeoMapRenderer = (() => {
             .attr('d', path)
             .attr('data-name', d => d.properties.name || '')
             .attr('aria-label', d => `Sungai: ${d.properties.name || 'Unknown'}`)
+        attachTooltip(layerGroups.rivers.selectAll('path'), 'name', 'river')
             .on('click', function(event, d) {
                 event.stopPropagation();
-                handleFeatureClick('river', d.properties.name, this);
+                handleFeatureClick('river', toIndonesian(d.properties.name, 'river'), this);
             });
         
         loadedLayers.rivers = true;
@@ -298,9 +362,10 @@ const GeoMapRenderer = (() => {
             .attr('d', path)
             .attr('data-name', d => d.properties.name || '')
             .attr('aria-label', d => `Danau: ${d.properties.name || 'Unknown'}`)
+        attachTooltip(layerGroups.lakes.selectAll('path'), 'name', 'lake')
             .on('click', function(event, d) {
                 event.stopPropagation();
-                handleFeatureClick('lake', d.properties.name, this);
+                handleFeatureClick('lake', toIndonesian(d.properties.name, 'lake'), this);
             });
         
         loadedLayers.lakes = true;
@@ -336,9 +401,10 @@ const GeoMapRenderer = (() => {
             .attr('data-name', d => d.properties.name || '')
             .attr('data-type', d => d.properties.featurecla || '')
             .attr('aria-label', d => `${d.properties.featurecla}: ${d.properties.name || 'Unknown'}`)
+        attachTooltip(layerGroups.seas.selectAll('path'), 'name', 'sea')
             .on('click', function(event, d) {
                 event.stopPropagation();
-                handleFeatureClick(d.properties.featurecla, d.properties.name, this);
+                handleFeatureClick(d.properties.featurecla, toIndonesian(d.properties.name, 'sea'), this);
             });
         
         loadedLayers.seas = true;

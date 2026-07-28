@@ -343,14 +343,16 @@ body::-webkit-scrollbar-thumb {
     filter: brightness(1.1);
 }
 
-.map-country.visited {
-    stroke: var(--color-accent);
-    stroke-width: 1.5;
+.map-country.highlighted {
+    fill: #FFD54F;
+    stroke: #F57F17;
+    stroke-width: 2.5px;
+    transition: fill var(--transition-fast), stroke var(--transition-fast);
 }
 
-.map-country.visited:hover {
-    stroke: var(--color-warning);
-    stroke-width: 2;
+.map-country.highlighted:hover {
+    fill: #FFCA28;
+    stroke: #E65100;
 }
 
 .map-mountain {
@@ -404,6 +406,24 @@ body::-webkit-scrollbar-thumb {
 
 .map-sea:hover {
     fill-opacity: 0.7;
+}
+
+/* Map Tooltip */
+.map-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: var(--font-body);
+    z-index: 300;
+    white-space: nowrap;
+}
+
+.map-tooltip.hidden {
+    display: none;
 }
 
 /* Layer visibility */
@@ -1247,7 +1267,7 @@ body::-webkit-scrollbar-thumb {
         stroke-width: 1;
     }
     
-    .map-country.visited {
-        stroke-width: 2.5;
+    .map-country.highlighted {
+        stroke-width: 3;
     }
 }
